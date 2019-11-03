@@ -13,7 +13,7 @@ declare var M: any;
 })
 export class CoordinateComponent implements OnInit {
 
-  constructor(private coordinateService: CoordinateService) { }
+  constructor(public coordinateService: CoordinateService) { }
 
   ngOnInit() {
     this.resetForm();
