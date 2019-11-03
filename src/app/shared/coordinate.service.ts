@@ -10,7 +10,7 @@ import { Coordinate } from './coordinate.model';
 export class CoordinateService {
   selectedCoordinate: Coordinate;
   coordinates: Coordinate[];
-  readonly baseURL = 'http://localhost:1234';
+  readonly baseURL = 'ec2-3-83-64-115.compute-1.amazonaws.com';
 
   constructor(private http: HttpClient) { }
 
