@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s12">
+                <h2>Registro de Eventos</h2>
+            </div>
+            <div class="col s2"></div>
+            <div class="col s8 form-style">
+              <form #coordinateForm="ngForm" (ngSubmit)="onSubmit(coordinateForm)">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="lat" #name="ngModel" [(ngModel)]="coordinateService.selectedCoordinate.lat" placeholder="0.0" required>
+                    <label>Latitud :
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="lng" #name="ngModel" [(ngModel)]="coordinateService.selectedCoordinate.lng" placeholder="0.0" required>
+                    <label>Longitud :</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="description" #name="ngModel" [(ngModel)]="coordinateService.selectedCoordinate.description" placeholder="Ingrese descripcion" required>
+                    <label>Descripcion :</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(coordinateForm)">Reiniciar</button>
+                    <button class="btn btn-custom right" type="submit" [disabled]="!coordinateForm.valid">Enviar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col s2"></div>
+          </div>
+          <div class="row">
+            <div class="col s2"></div>
+            <div class="col s8">
+                <table class="responsive-table highlight table-style">
+                    <thead>
+                      <tr>
+                        <th>Descripcion</th>
+                        <th>Latitud</th>
+                        <th>Longitud</th>
+                        <th>Eliminar</th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let data of coordinateService.coordinates">
+                      <td>{{data.description}}</td>
+                      <td>{{data.lat}}</td>
+                      <td>{{data.lng}}</td>
+                      <td>
+                          <a class="action-btn" (click)="onDelete(data._id,coordinateForm)" >
+                            <i class="material-icons icon-style">delete</i>
+                          </a>
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+            <div class="col s2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
