@@ -15,19 +15,19 @@ export class CoordinateService {
   constructor(private http: HttpClient) { }
 
   postCoordinate(data: Coordinate) {
-    return this.http.post(environment.apiUrl + `/coordinates/create`, data);
+    return this.http.post(`${environment.apiUrl}/coordinates/create`, data);
   }
 
   getCoordinate() {
-    return this.http.get(environment.apiUrl + `/coordinates/listAll`);
+    return this.http.get(`${environment.apiUrl}/coordinates/listAll`);
   }
 
   searchCoordinate(data) {
-    return this.http.post(environment.apiUrl + `/coordinates/search`, data);
+    return this.http.post(`${environment.apiUrl}/coordinates/search`, data);
   }
 
   deleteCoordinate(_id: string) {
-    return this.http.delete(environment.apiUrl + `/coordinates/${_id}/delete`);
+    return this.http.delete(`${environment.apiUrl}/coordinates/${_id}/delete`);
   }
 
 }
