@@ -8,6 +8,8 @@ import { CoordinateComponent } from './components/coordinate/coordinate.componen
 import { MapsComponent } from './components/maps/maps.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,10 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCaXOxBSoefofM-yjMqTPbrJT-qaAoN4GA'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

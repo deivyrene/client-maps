@@ -11,22 +11,26 @@
               <form #coordinateForm="ngForm" (ngSubmit)="onSubmit(coordinateForm)">
                 <div class="row">
                   <div class="input-field col s12">
-                    <input type="text" name="lat" #name="ngModel" [(ngModel)]="coordinateService.selectedCoordinate.lat" placeholder="0.0" required>
-                    <label>Latitud :
-                      <label class="red-text">*</label>
+                    <label>Latitud:
+                        <label class="red-text">*</label>
                     </label>
+                    <input type="text" name="lat" #name="ngModel" [(ngModel)]="coordinateService.selectedCoordinate.lat" placeholder="0.0" required>
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
+                    <label>Longitud :
+                        <label class="red-text">*</label>
+                    </label>                    
                     <input type="text" name="lng" #name="ngModel" [(ngModel)]="coordinateService.selectedCoordinate.lng" placeholder="0.0" required>
-                    <label>Longitud :</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
-                    <input type="text" name="description" #name="ngModel" [(ngModel)]="coordinateService.selectedCoordinate.description" placeholder="Ingrese descripcion" required>
-                    <label>Descripcion :</label>
+                    <label>Descripcion :
+                        <label class="red-text">*</label>
+                    </label>
+                    <input type="text" name="description" #name="ngModel" [(ngModel)]="coordinateService.selectedCoordinate.description" placeholder=" " required>
                   </div>
                 </div>
                 <div class="row">

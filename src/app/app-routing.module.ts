@@ -5,7 +5,7 @@ import { CoordinateComponent } from './components/coordinate/coordinate.componen
 import { MapsComponent } from './components/maps/maps.component';
 
 const routes: Routes = [
-  { path: '**', component: CoordinateComponent },
+  { path: '', component: CoordinateComponent },
   { path: 'maps', component: MapsComponent }
 ];
 

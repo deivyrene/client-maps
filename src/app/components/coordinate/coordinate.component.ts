@@ -25,8 +25,8 @@ export class CoordinateComponent implements OnInit {
       form.reset();
     this.coordinateService.selectedCoordinate = {
       _id: "",
-      lat: "0.0",
-      lng: "0.0",
+      lat: "",
+      lng: "",
       description: ""
     }
   }

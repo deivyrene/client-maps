@@ -1,1 +1,6 @@
-<p>maps works!</p>
+<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+  <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-marker  *ngFor="let coordinates of coordinateService.coordinates" [latitude]=coordinates.lat [longitude]=coordinates.lng  title={{coordinates.description}}  (markerClick)="clickedMarker(coordinates.lat, coordinates.lng)" >
+        <agm-info-window><strong>{{coordinates.description}}</strong></agm-info-window>
+    </agm-marker>
+</agm-map>
