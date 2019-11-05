@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CoordinateService } from  '../../shared/coordinate.service';
 import { Coordinate } from '../../shared/coordinate.model';
+import { environment } from '../../../environments/environment';
+import * as io from 'socket.io-client';
 
 declare var M: any;
 
@@ -12,12 +14,16 @@ declare var M: any;
   providers: [CoordinateService]
 })
 export class CoordinateComponent implements OnInit {
-
-  constructor(public coordinateService: CoordinateService) { }
+  private socket;
+  constructor(public coordinateService: CoordinateService) {
+    this.socket = io(environment.apiUrl);
+  }
 
   ngOnInit() {
     this.resetForm();
-    this.refreshCoordinateList();
+    this.socket.on('Coordinate', () => {
+      this.refreshCoordinateList();
+    })
   }
 
   resetForm(form?: NgForm) {
@@ -34,7 +40,6 @@ export class CoordinateComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.coordinateService.postCoordinate(form.value).subscribe((res) => {
       this.resetForm(form);
-      this.refreshCoordinateList();
       M.toast({ html: 'Evento creado correctamente', classes: 'rounded' });
     });
   }
@@ -43,20 +48,6 @@ export class CoordinateComponent implements OnInit {
     this.coordinateService.getCoordinate().subscribe((res) => {
       this.coordinateService.coordinates = res as Coordinate[];
     });
-  }
-
-  onEdit(data: Coordinate) {
-    this.coordinateService.selectedCoordinate = data;
-  }
-
-  onDelete(_id: string, form: NgForm) {
-    if (confirm('Desea borrar el evento?') == true) {
-      this.coordinateService.deleteCoordinate(_id).subscribe((res) => {
-        this.refreshCoordinateList();
-        this.resetForm(form);
-        M.toast({ html: 'Se ha eliminado el evento', classes: 'rounded' });
-      });
-    }
   }
 
 }

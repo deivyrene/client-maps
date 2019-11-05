@@ -1,6 +1,24 @@
-<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-  <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
-    <agm-marker  *ngFor="let coordinates of coordinateService.coordinates" [latitude]=coordinates.lat [longitude]=coordinates.lng  title={{coordinates.description}}  (markerClick)="clickedMarker(coordinates.lat, coordinates.lng)" >
-        <agm-info-window><strong>{{coordinates.description}}</strong></agm-info-window>
-    </agm-marker>
-</agm-map>
+<div class="row">
+<div class="col s12">
+    <nav>
+        <div class="nav-wrapper">
+          <form>
+            <div class="input-field">
+              <input id="search" type="search" required (change)="searchCoordinates($event.target.value)">
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+    </nav>
+</div>
+<div class="col s12">
+  <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+    <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+      <agm-marker  *ngFor="let coordinates of coordinateService.coordinates" [latitude]=coordinates.lat [longitude]=coordinates.lng  title={{coordinates.description}}  (markerClick)="clickedMarker(coordinates.lat, coordinates.lng)" >
+          <agm-info-window><strong>{{coordinates.description}}</strong></agm-info-window>
+      </agm-marker>
+  </agm-map>
+</div>
+
+</div>

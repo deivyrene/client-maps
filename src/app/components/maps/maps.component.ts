@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CoordinateService } from  '../../shared/coordinate.service';
 import { Coordinate } from '../../shared/coordinate.model';
+import { environment } from '../../../environments/environment';
+import * as io from 'socket.io-client';
+
+declare var M: any;
 
 @Component({
   selector: 'app-maps',
@@ -9,20 +13,33 @@ import { Coordinate } from '../../shared/coordinate.model';
   providers: [CoordinateService]
 })
 export class MapsComponent implements OnInit {
-  texto : string = 'Mapa de Eventos Registrados ';
-  lat: number = -33.447487;
-  lng: number = -70.673676;
-  zoom: number = 15;
+  public texto : string = 'Mapa de Eventos Registrados ';
+  public lat: number = -33.4368808;
+  public lng: number = -70.6894724;
+  public zoom: number = 15;
 
-  constructor(public coordinateService: CoordinateService) { }
-
-  ngOnInit() {
-    this.getEvents();
+  private socket;
+  constructor(public coordinateService: CoordinateService) {
+    this.socket = io(environment.apiUrl);
   }
 
-  getEvents(){
+  ngOnInit() {
+    this.getCoordinates();
+    this.socket.on('Coordinate', () => {
+      this.getCoordinates();
+    })
+  }
+
+  getCoordinates(){
     this.coordinateService.getCoordinate().subscribe((res) => {
       this.coordinateService.coordinates = res as Coordinate[];
+    });
+  }
+
+  searchCoordinates(filter){
+    this.coordinateService.searchCoordinate(filter).subscribe((res) => {
+      
+      (res != 'No se encontro resultados') ? this.coordinateService.coordinates = res as Coordinate[] : M.toast({ html: 'No se encontraron eventos', classes: 'rounded' });
     });
   }
 

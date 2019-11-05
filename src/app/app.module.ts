@@ -9,12 +9,16 @@ import { MapsComponent } from './components/maps/maps.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AgmCoreModule } from '@agm/core';
+import { ListComponent } from './components/coordinate/list/list.component';
+
+import { SocketService } from './shared/socket.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoordinateComponent,
-    MapsComponent
+    MapsComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,7 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: 'AIzaSyCaXOxBSoefofM-yjMqTPbrJT-qaAoN4GA'
     })
   ],
-  providers: [],
+  providers: [SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

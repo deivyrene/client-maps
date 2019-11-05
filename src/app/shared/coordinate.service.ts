@@ -23,7 +23,7 @@ export class CoordinateService {
   }
 
   searchCoordinate(data) {
-    return this.http.post(`${environment.apiUrl}/coordinates/search`, data);
+    return this.http.post(`${environment.apiUrl}/coordinates/search`, { description: data });
   }
 
   deleteCoordinate(_id: string) {
