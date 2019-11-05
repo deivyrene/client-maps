@@ -38,7 +38,6 @@ export class MapsComponent implements OnInit {
 
   searchCoordinates(filter){
     this.coordinateService.searchCoordinate(filter).subscribe((res) => {
-      
       (res != 'No se encontro resultados') ? this.coordinateService.coordinates = res as Coordinate[] : M.toast({ html: 'No se encontraron eventos', classes: 'rounded' });
     });
   }
