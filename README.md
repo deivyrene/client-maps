@@ -22,11 +22,11 @@ Ejecute `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:4
 
 -Posee un filtro para buscar eventos registrados con un selector dinamico, ademas de fijar la busqueda en el mapa con los resultados obtenido
 
-![Cargando mapa](![alt text](https://client-maps.s3.amazonaws.com/image_three.png)
+![Cargando mapa](https://client-maps.s3.amazonaws.com/image_three.png)
 
 -Para obtener el listado de eventos, se debe presionar en listado de coordenadas.
 
-![Cargando mapa](![alt text](https://client-maps.s3.amazonaws.com/image_two.png)
+![Cargando mapa](https://client-maps.s3.amazonaws.com/image_two.png)
 
 
 ## Tecnologias
