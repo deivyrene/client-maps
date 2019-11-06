@@ -1,26 +1,18 @@
 # ClientMaps
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
 
-## Development server
+## Servidor de desarrollo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Ejecute `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:4200/`. La aplicación se volverá a cargar automáticamente si cambia alguno de los archivos de origen.
 
-## Code scaffolding
+## Descripcion
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+La aplicación posee un formulario de registro de eventos, donde cada evento registrado actualiza via websocket el mapa donde se detallan cada uno de los registros. En la parte superior de la pantalla, se encuentra un menu para poder desplazarse por las opciones.
 
-## Build
+![Aquí la descripción de la imagen por si no carga]
+(https://github.com/deivyrene/server/blob/master/image_two.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
