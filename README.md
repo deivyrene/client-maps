@@ -11,7 +11,7 @@ Ejecute `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:4
 La aplicación posee un formulario de registro de eventos, donde cada evento registrado actualiza via websocket el mapa donde se detallan cada uno de los registros. En la parte superior de la pantalla, se encuentra un menu para poder desplazarse por las opciones.
 
 ![Aquí la descripción de la imagen por si no carga]
-(https://github.com/deivyrene/server/blob/master/image_two.png)
+(https://raw.githubusercontent.com//deivyrene/server/blob/master/image_two.png)
 
 
 ## Further help
