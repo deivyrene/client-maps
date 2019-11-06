@@ -4,9 +4,22 @@
         <div class="nav-wrapper">
           <form>
             <div class="input-field">
-              <input id="search" type="search" required (change)="searchCoordinates($event.target.value)">
-              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-              <i class="material-icons">close</i>
+              <!--<input id="search" type="search" required (change)="searchCoordinates($event.target.value)">-->
+              <mat-form-field>
+                  <input
+                    type="text"
+                    placeholder="Buscador de Eventos"
+                    matInput
+                    [formControl]="myControl"
+                    [matAutocomplete]="auto"
+                    (change)="searchCoordinates($event.target.value)"
+                  />
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of (filteredOptions | async)" [value]="option">
+                      {{ option }}
+                    </mat-option>
+                  </mat-autocomplete>
+              </mat-form-field>
             </div>
           </form>
         </div>
@@ -14,7 +27,7 @@
 </div>
 <div class="col s12">
   <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-    <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-marker  [latitude]="lat" [longitude]="lng" title="Marcador Fijo"></agm-marker>
       <agm-marker  *ngFor="let coordinates of coordinateService.coordinates" [latitude]=coordinates.lat [longitude]=coordinates.lng  title={{coordinates.description}} >
           <agm-info-window><strong>{{coordinates.description}}</strong></agm-info-window>
       </agm-marker>
