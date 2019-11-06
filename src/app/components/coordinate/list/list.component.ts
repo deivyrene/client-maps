@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
   }
 
   refreshCoordinateList() {
-    this.coordinateService.getCoordinate().subscribe((res) => {
+    this.coordinateService.getAllCoordinate().subscribe((res) => {
       this.coordinateService.coordinates = res as Coordinate[];
     });
   }

@@ -30,4 +30,8 @@ export class CoordinateService {
     return this.http.delete(`${environment.apiUrl}/coordinates/${_id}/delete`);
   }
 
+  getAllCoordinate() {
+    return this.http.get(`${environment.apiUrl}/coordinates/coordinates`);
+  }
+
 }
