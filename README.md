@@ -10,7 +10,7 @@ Ejecute `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:4
 
 La aplicación posee un formulario de registro de eventos, donde cada evento registrado actualiza via websocket el mapa donde se detallan cada uno de los registros. En la parte superior de la pantalla, se encuentra un menu para poder desplazarse por las opciones.
 
-![alt text](https://www.dropbox.com/s/wjpompmx3zpdx6f/image_one.png?dl=0)
+![alt text](https://client-maps.s3.amazonaws.com/image_one.png)
 
 
 ## Further help
